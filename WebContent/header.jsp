@@ -5,11 +5,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome to CampusYantra</title>
+<title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-<h1>Welcome to CampusYantra</h1>
-<jsp:include page="footer.jsp" />
+<c:if test="${sessionScope.name != null }">
+Welcome <b>${sessionScope.name}</b>
+<a href="ProfileServlet">Profile</a>
+<a href="LogoutServlet">Logout</a>
+</c:if>
+<c:if test="${sessionScope.name == null }">
+${'Welcome Guest'}
+<a href="login.jsp">Login</a>
+</c:if>
+<hr>
 </body>
 </html>

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome to CampusYantra</title>
+<title>My Profile</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-<h1>Welcome to CampusYantra</h1>
-<jsp:include page="footer.jsp" />
+<jsp:include page="/header.jsp" />
+${sessionScope.name } your profile details will be listed here.
+<jsp:include page="/footer.jsp" />
 </body>
 </html>
