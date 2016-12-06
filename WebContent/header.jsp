@@ -16,6 +16,7 @@ Welcome <b>${sessionScope.name}</b>
 <c:if test="${sessionScope.name == null }">
 ${'Welcome Guest'}
 <a href="login.jsp">Login</a>
+<a href="registration.jsp">Registration</a>
 </c:if>
 <hr>
 </body>
