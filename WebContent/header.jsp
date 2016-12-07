@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body><Strong>CapusYantra</Strong>
 <c:if test="${sessionScope.name != null }">
 Welcome <b>${sessionScope.name}</b>
 <a href="ProfileServlet">Profile</a>

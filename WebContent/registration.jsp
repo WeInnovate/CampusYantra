@@ -7,6 +7,7 @@
 <title>Registration</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <h1 align="center">Registration Page!</h1>
 	<form action="RegistrationServlet" method="post">
 		<table align="center">
@@ -37,5 +38,6 @@
 			</tr>
 		</table>
 	</form>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
