@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.campusyantra.dao.service.TraineeService;
+import org.campusyantra.dao.util.DAOFactory;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -30,11 +33,19 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("userName");
-		HttpSession ses = request.getSession();
-		ses.setAttribute("name", name);
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
 		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		TraineeService trnService = DAOFactory.getTraineeService();
+		
+		if(trnService.login(userName, password)){
+			HttpSession ses = request.getSession();
+			ses.setAttribute("name", userName);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		else{
+			response.sendRedirect("login.jsp");
+		}		
 	}
 
 }
