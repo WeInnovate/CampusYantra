@@ -84,7 +84,6 @@ public class TraineeServiceImpl implements TraineeService {
 
 	@Override
 	public void getTraineeByEmail(String email) {
-		// TODO Auto-generated method stub
 		
 	}
 
