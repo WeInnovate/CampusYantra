@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.campusyantra.db.DBUtil;
 import org.campusyantra.dto.Trainee;
 
 /**
@@ -18,41 +17,30 @@ import org.campusyantra.dto.Trainee;
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RegistrationServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public RegistrationServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		long id = System.currentTimeMillis();
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
 		String gender = request.getParameter("gender");
 		String phone = request.getParameter("phone");
 		HttpSession ses = request.getSession();
 		ses.setAttribute("name", name);
 		Trainee trn = new Trainee(id, name, email, gender, Integer.parseInt(phone));
-
-		DBUtil dbu = new DBUtil();
-		dbu.register(trn);
-		int i = dbu.saveLoginDetails(email, password);
-		if (i > 0) {
-			System.out.println(trn);
-			response.sendRedirect("index.jsp");
-		} else {
-			response.sendRedirect("registration.jsp");
-		}
+		System.out.println(trn);
+		response.sendRedirect("index.jsp");
 	}
 
 }

@@ -10,7 +10,5 @@
 <body>
 <hr>
 Copyright &copy ${initParam.campusName} ${initParam.copyrightYear}
-<!-- get values from web.xml, context parameters , 
-any change in value change in web.xml reflect everywhere -->
 </body>
 </html>

@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.campusyantra.db.DBUtil;
-
 /**
  * Servlet implementation class LoginServlet
  */
@@ -33,22 +31,10 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("userName");
-		String pass = request.getParameter("password");
+		HttpSession ses = request.getSession();
+		ses.setAttribute("name", name);
 		
-		DBUtil dbu = new DBUtil();
-		boolean result = dbu.doLogin(name, pass);
-		
-		if(result){
-			HttpSession ses = request.getSession();
-			ses.setAttribute("name", name);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}
-		else{
-			response.sendRedirect("login.jsp");;
-		}
-		
-		
-		
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }

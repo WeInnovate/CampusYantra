@@ -10,7 +10,7 @@
 <jsp:include page="header.jsp" />
 <form action="LoginServlet" method="post">
 <input type="text" name="userName" />
-<input type="password" name="password" />
+<input type="text" name="password" />
 <input type="submit" value="Login" />
 </form>
 <jsp:include page="footer.jsp" />
