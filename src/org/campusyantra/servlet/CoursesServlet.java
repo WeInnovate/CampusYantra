@@ -34,8 +34,8 @@ public class CoursesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Course> courseList = new ArrayList<Course>();
 		for(int i = 0; i < 5; i++){
-			Course course = new Course(i, "Course", "Trainer");
-			courseList.add(course);
+			//Course course = new Course(i, "Course", "Trainer");
+			//courseList.add(course);
 		}
 		HttpSession ses = request.getSession(false);
 		request.setAttribute("courses", courseList);

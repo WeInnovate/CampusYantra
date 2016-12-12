@@ -30,6 +30,9 @@ public class EnrollmentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		String courseName = request.getParameter("courseName");
+		String moduleName = request.getParameter("moduleName");
+		System.out.println(moduleName+" "+courseName);
 		HttpSession ses = request.getSession(false);
 		String user = (ses != null) ? (String) ses.getAttribute("name")
 				: null;
